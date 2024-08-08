@@ -1,6 +1,10 @@
 
-![alt text](images/image.png)
-This Repo is for the 2024 Biohacking Village Badge. This guide will help you set up your development environment, connect your badge, and start hacking. Keep an Eye out, as more details will be slowly added to the project during DEF CON. 
+<p align="center">
+  <img src="images/amb.png" width="300">
+</p>This repo is for the 2024 Biohacking Village Badge. This guide will help you set up your development environment, connect your badge, and start hacking. Keep an eye out, as more details will be slowly added to the project during DEF CON. Here are some helpful locations to check: 
+
+- [BHV Twitter](https://x.com/DC_BHV)
+- [BHV Instagram](https://www.instagram.com/biohacking_village/)
 
 ## Table of Contents
 
@@ -28,7 +32,7 @@ This project contains the firmware and tools needed to develop and customize you
 
 ## Badge Use
 
-This years badge will allow you (in)accurately measure your BAC.  This solution is only for fun [TODO] Pull out standard disclaimer….  
+This years badge will allow you to (in)accurately measure your blood-alcohol content (BAC). 
 
 > [!WARNING]
 > **Please drink responsibly. This BAC should not be relied upon to give you an accurate BAC reading or for any medical purposes.**
@@ -47,14 +51,16 @@ After the badge turns on, simply tap the button (*theres only one*), and follow 
 
 #### Connect Wirelessly to the Badge
 
-<img src="images/app.png" width="300">
-
+<p align="center">
+  <img src="images/app.png" width="300">
+</p>
 Each badge will advertise its own WiFi access point, the SSID will match your Unique badge name (AMB-xxxxxx). Once connected you can access the badge's Web UI @ 192.168.4.1. 
 
 #### Getting your Password
 
-<img src="images/conenct.png" width="300">
-
+<p align="center">
+  <img src="images/connect.png" width="300">
+</p>
 Each badge has a unique 8 character password.  You can find this password by holding the button for 1 sec and releasing. In addition to the password, the badge will additionally generate a QR Code.  You can scan this QR code to quickly connect to your Badge without having to enter any passwords.
 (Little Tip, some characters, (such as ‘u’ and ‘v’ look very similar so if your password does not work, make sure you entered the right characters)
 
@@ -70,13 +76,13 @@ If you’re looking for more information on the badge hardware, the project is p
 > [!CAUTION]
 > This badge has multiple power rails, the Raspberry Pi Pico W IO pins are only protected up to VDD(3.3V) if probing the device **DO NOT apply more than 3.3V to any vias, connections, test pads etc.  It could damage your badge.**
 
-## Interrating with the badges firmware. 
+## Interacting with the badges firmware. 
 
 Before you begin, ensure you have the following:
 
-- A DEFCON badge,  Come visit us at BHV for more details!
-- A computer, Linux, MacOS, Windows, Its all good. 
-- A micro-usb cable
+- A DEFCON badge, come visit us at BHV for more details!
+- A computer, Linux, MacOS, Windows, it's all good. 
+- A micro-usb cable.
 
 ### Software
 
@@ -113,8 +119,6 @@ Before you begin, ensure you have the following:
   - Open Visual Studio Code and install the MicroPico extension from the marketplace.
     - Here’s a [guide](https://randomnerdtutorials.com/raspberry-pi-pico-vs-code-micropython/). 
 
-4. ** Firmware Folder**
-
 
 ## Connecting the Badge
 
@@ -139,15 +143,14 @@ If updating all the firmware you can leverage the script in `/tools/optimize.py`
         cd firmware/
         ```
 3. **Connect the Badge to Your Computer**
-     - Use a USB cable to connect your DEFCON badge to your computer.
+     - Use a micro-USB cable to connect your DEFCON badge to your computer.
      - The screen will indicate that its charging. 
 
 4. **Verify the Connection**
      - Open a terminal and list the connected devices:
        ```bash
-       rshell -p /dev/ttyUSB0
+       rshell -p <DEVICE_NAME>
        ```
-     - Replace `/dev/ttyUSB0` with the appropriate device path for your system.
      - If successful, you sould be able to navigate to /pyboard/ to find files loaded on the device. 
 5. **Make Your Changes**
     - Modify the firmware code as needed.
@@ -155,7 +158,7 @@ If updating all the firmware you can leverage the script in `/tools/optimize.py`
      - Open a terminal and use rshell to upload the firmware.  Typically the device will be automatically discovered. But in the off chance you have to specify, point directly to the device, such as /dev/ttyUSB0. 
     ```bash
 
-    rshell -p /dev/ttyUSB0 # May need to use sudo 
+    rshell -p <DEVICE_NAME> # May need to use sudo 
 
     cp main.py /pyboard # if you need to copy a single file
 
@@ -202,7 +205,7 @@ We welcome contributions from the community! If you would like to contribute, pl
 
 ## License
 
-This project is licensed under the MIT License.
+This project is licensed under the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0).
 
 ## Contact
 
