@@ -1,0 +1,38 @@
+{% args device_id %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<title>Flags Page</title>
+	<script src="/js/flags.js"></script>    
+</head>
+<div class="header" id="logo">
+	<img src="static/bhvLogo.png" height=80 alt="BHV Logo">
+	<p class="deviceId">{{ device_id }}</p>
+</div>
+<div class="topnav" id="myTopnav">
+	<a href="/flags" class="active">Flags</a>
+	<a href="/"> Home</a>
+	<a href="/comms">Comms</a>
+	<a href="/dial">Dial</a>
+	<a href="/respond">Respond</a>
+	<a href="/sensor">Sensor</a>
+	<a href="/credits">Credits</a>
+	<a href="javascript:void(0);" class="icon" onclick="myFunction()">
+		<img src="static/menu.png" height=23>
+	</a>
+</div>
+	<div id="flagsContainer"></div> <!-- Flags will be inserted here by JavaScript -->
+	<script>
+		function myFunction() {
+			var x = document.getElementById("myTopnav");
+			if (x.className === "topnav") {
+				x.className += " responsive";
+			} else {
+				x.className = "topnav";
+			}
+		}
+	</script>
+</body>
+</html>

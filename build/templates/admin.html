@@ -1,0 +1,78 @@
+{% args device_id, flag %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<title>Admin Page</title>
+	<script>
+		function verifyCredentials() {
+			var username = prompt("Enter username:");
+			var password = prompt("Enter password:");
+			if (username === "admin" && password === "{{ device_id }}") {
+				alert("Flag: {{ flag }}");
+			} else {
+				alert("Incorrect credentials. Access denied.");
+				document.location.href="/";
+			}
+		}        
+	</script>
+	<script src="js/admin.js"></script>
+</head>
+<body onload="verifyCredentials(); loadConfig();">
+	<div class="header" id="logo">
+		<img src="static/bhvLogo.png" height=80 alt="BHV Logo">
+		<p class="deviceId">{{ device_id }}</p>
+	</div>
+	<div class="topnav" id="myTopnav">
+		<a href="/admin" class="activeAdmin">Admin</a>
+		<a href="/"> Home</a>
+		<a href="/flags">Flags</a>
+		<a href="/comms">Comms</a>
+		<a href="/dial">Dial</a>
+		<a href="/respond">Respond</a>
+		<a href="/sensor">Sensor</a>
+		<a href="/credits">Credits</a>
+		<a href="javascript:void(0);" class="icon" onclick="myFunction()">
+			<img src="static/menu.png" height=23>
+		</a>
+	</div>
+	<form id="configForm">
+		<label for="startupColor">Startup LED Color:</label>
+		<input type="text" id="startupColor" name="startupColor"><br><br>
+
+		<label for="apPassword">AP Password:</label>
+		<input type="text" id="apPassword" name="apPassword"><br><br>
+
+		<label for="personalizedMsg">Personalized Message:</label>
+		<input type="text" id="personalizedMsg" name="personalizedMsg"><br><br>
+
+		<label for="coeff1">Coefficient 1:</label>
+		<input type="number" id="coeff1" name="coeff1"><br><br>
+
+		<label for="coeff2">Coefficient 2:</label>
+		<input type="number" id="coeff2" name="coeff2"><br><br>
+
+		<label for="coeff3">Coefficient 3:</label>
+		<input type="number" id="coeff3" name="coeff3"><br><br>
+
+		<label for="version">Version</label>
+		<input type="text" id="version" name="version" readonly><br><br>
+
+		<button type="button" onclick="saveConfig()">Save Configuration</button>
+	</form>
+	<div class="fun-fact">
+		<strong>Did You Know?</strong> <em>Modern ambulances are equipped with advanced telematics systems that require administrative-level access to configure. These systems can include cybersecurity protections to prevent unauthorized access, ensuring that sensitive data such as patient records and operational protocols are securely managed.</em>
+	</div>    
+	<script>
+		function myFunction() {
+			var x = document.getElementById("myTopnav");
+			if (x.className === "topnav") {
+				x.className += " responsive";
+			} else {
+				x.className = "topnav";
+			}
+		}
+	</script>
+</body>
+</html>

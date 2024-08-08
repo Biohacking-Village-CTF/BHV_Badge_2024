@@ -1,0 +1,67 @@
+[
+    {
+        "name": "Caleb Davis",
+        "socialLinks": [
+            {
+                "name": "GitHub",
+                "url": "https://github.com/So11Deo6loria/",
+                "icon": "static/github-icon.png"
+            },
+            {
+                "name": "Twitter",
+                "url": "https://twitter.com/So11Deo6loria",
+                "icon": "static/x-icon.png"
+            },
+            {
+                "name": "LinkedIn",
+                "url": "https://www.linkedin.com/in/caleb-davis-400439100/",
+                "icon": "static/linkedin-icon.png"
+            }
+        ]
+    },
+    {
+        "name": "Nathan Smith",
+        "socialLinks": [
+            {
+                "name": "GitHub",
+                "url": "https://github.com/nathantsmith",
+                "icon": "static/github-icon.png"
+            },
+            {
+                "name": "Twitter",
+                "url": "https://twitter.com/Nate_Sm1th",
+                "icon": "static/x-icon.png"
+            },
+            {
+                "name": "LinkedIn",
+                "url": "https://www.linkedin.com/in/nathan-smith-91128b72/",
+                "icon": "static/linkedin-icon.png"
+            }
+        ]
+    },
+    {
+        "name": "Kyle Shockley",
+        "socialLinks": [
+            {
+                "name": "LinkedIn",
+                "url": "https://www.linkedin.com/in/kyle-shockley-762a8321/",
+                "icon": "static/linkedin-icon.png"
+            }
+        ]
+    },
+    {
+        "name": "Nina Medina",
+        "socialLinks": [
+            {
+                "name": "Twitter",
+                "url": "https://twitter.com/headinthebooth",
+                "icon": "static/x-icon.png"
+            },
+            {
+                "name": "LinkedIn",
+                "url": "https://www.linkedin.com/in/janineamedina/",
+                "icon": "static/linkedin-icon.png"
+            }
+        ]
+    }
+]

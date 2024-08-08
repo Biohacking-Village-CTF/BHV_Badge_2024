@@ -1,0 +1,59 @@
+{% args device_id %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<title>Credits Page</title>
+</head>
+<body>
+	<div class="header" id="logo">
+		<img src="static/bhvLogo.png" height=80 alt="BHV Logo">
+		<p class="deviceId">{{ device_id }}</p>
+	</div>
+	<div class="topnav" id="myTopnav">
+		<a href="/credits" class="active">Credits</a>
+		<a href="/"> Home</a>
+		<a href="/flags">Flags</a>
+		<a href="/comms">Comms</a>
+		<a href="/dial">Dial</a>
+		<a href="/respond">Respond</a>
+		<a href="/sensor">Sensor</a>
+		<a href="javascript:void(0);" class="icon" onclick="myFunction()">
+			<img src="static/menu.png" height=23>
+		</a>
+	</div>
+
+	<div class="content">
+		<section class="logos">
+			<a href="https://www.villageb.io/">
+				<img src="static/bhvLogo.png" alt="BHV Logo">
+			</a>
+			<a href="https://solasec.io/">
+				<img src="static/solasecLogo.png" alt="SolaSec Logo">
+			</a>
+		</section>
+		<h1>Leaving this here for now: BHV_CR3DI75_4_01234</h1>
+		<section class="contributors">
+			<div class="container">
+				<ul class="credits-list">
+					<!-- Contributors will be loaded here by the JavaScript -->
+				</ul>
+			</div>
+		</section>
+	</div>
+
+	<script src="js/credits.js"></script>
+	<script>
+		function myFunction() {
+			var x = document.getElementById("myTopnav");
+			if (x.className === "topnav") {
+				x.className += " responsive";
+			} else {
+				x.className = "topnav";
+			}
+		}
+		</script>
+</body>
+</html>
