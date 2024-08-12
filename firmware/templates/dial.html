@@ -1,0 +1,76 @@
+{% args device_id, prompt %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<title>Detector Page</title>
+	<script>
+		function startSequence() {
+			// Make the button active (turn red)
+			document.getElementById('startButton').classList.add('active');
+			
+			// Send an AJAX request to trigger the sequence and update the prompt
+			fetch('/start_sequence')
+				.then(response => response.json())
+				.then(data => {
+					// Update the prompt with the result from the server
+					document.getElementById('prompt').textContent = data.prompt;
+					
+					// Remove the "active" class to revert the button color to green
+					document.getElementById('startButton').classList.remove('active');
+				});
+		}
+
+		// Add the "active" class to the button when the DOM is loaded
+		document.addEventListener('DOMContentLoaded', function() {
+			var currentPath = window.location.pathname;
+			var links = document.querySelectorAll('.nav-link');
+
+			links.forEach(function(link) {
+				if (link.getAttribute('href') === currentPath) {
+					link.classList.add('active');
+				}
+			});
+		});
+	</script>
+</head>
+<body>
+	<div class="header" id="logo">
+		<img src="static/bhvLogo.png" height=80 alt="BHV Logo">
+		<p class="deviceId">{{ device_id }}</p>
+	</div>
+	<div class="topnav" id="myTopnav">
+		<a href="/dial" class="active">Dial</a>
+		<a href="/"> Home</a>
+		<a href="/flags">Flags</a>
+		<a href="/comms">Comms</a>
+		<a href="/respond">Respond</a>
+		<a href="/sensor">Sensor</a>
+		<a href="/credits">Credits</a>
+		<a href="javascript:void(0);" class="icon" onclick="myFunction()">
+			<img src="static/menu.png" height=23>
+		</a>
+	</div>
+
+	<div class="content">
+		<p></p>
+		<!-- Use the "active" class to make the button red when pressed -->
+		<button id="startButton" onclick="startSequence()">Start Sequence</button>
+		<p id="prompt">Waiting for GPIO sequence...</p>
+	</div>
+	<div class="fun-fact">
+		<strong>Did You Know?</strong> <em>When dialing emergency services, cybersecurity is crucial in ensuring that your call is reliably routed correctly and that sensitive information remains protected. Modern emergency dispatch systems employ advanced encryption and secure communication protocols to safeguard information.
+	</div>    
+	<script>
+		function myFunction() {
+			var x = document.getElementById("myTopnav");
+			if (x.className === "topnav") {
+				x.className += " responsive";
+			} else {
+				x.className = "topnav";
+			}
+		}
+		</script>
+</body>
+</html>

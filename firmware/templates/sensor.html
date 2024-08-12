@@ -1,0 +1,74 @@
+{% args device_id, sensor_value %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<title>Sensor Page</title>
+	<script>
+		document.addEventListener('DOMContentLoaded', function() {
+			var currentPath = window.location.pathname;
+			var links = document.querySelectorAll('.nav-link');
+
+			links.forEach(function(link) {
+				if (link.getAttribute('href') === currentPath) {
+					link.classList.add('active');
+				}
+			});
+		});
+	</script>
+</head>
+<div class="header" id="logo">
+	<img src="static/bhvLogo.png" height=80 alt="BHV Logo">
+	<p class="deviceId">{{ device_id }}</p>
+</div>
+<div class="topnav" id="myTopnav">
+	<a href="/sensor" class="active">Sensor</a>
+	<a href="/"> Home</a>
+	<a href="/flags">Flags</a>
+	<a href="/comms">Comms</a>
+	<a href="/dial">Dial</a>
+	<a href="/respond">Respond</a>
+	<a href="/credits">Credits</a>
+	<a href="javascript:void(0);" class="icon" onclick="myFunction()">
+		<img src="static/menu.png" height=23>
+	</a>
+</div>
+
+	<div class="content">
+		<p></p>
+		<div id="sensorValue">Blood Alcohol Content (BAC): <span id="sensorValueText">{{ sensor_value }}%</span></div>
+		<div id="drinkResponsibly">Please drink responsibly. This BAC should not be relied on for any medical purposes.</div>
+	</div>
+	<div class="fun-fact">
+		<strong>Did You Know?</strong> <em>Paramedics may use portable devices to measure a patient's blood alcohol content (BAC) on-site. The data collected by these devices can be transmitted securely to law enforcement or medical facilities, using encrypted communications to ensure the information is protected against unauthorized access.</em>
+	</div>
+	<script>
+		function myFunction() {
+			var x = document.getElementById("myTopnav");
+			if (x.className === "topnav") {
+				x.className += " responsive";
+			} else {
+				x.className = "topnav";
+			}
+		}
+
+		// Function to update sensor value
+		function updateSensorValue() {
+			fetch('/get_sensor')
+				.then(response => response.json())
+				.then(data => {
+					// Update the sensor value
+					const sensorValue = parseFloat(data.sensor_value).toFixed(3);
+					document.getElementById('sensorValueText').textContent = `${sensorValue}%`;
+				})
+				.catch(error => {
+					console.error('Error fetching sensor data:', error);
+				});
+		}
+
+		// Initial update
+		updateSensorValue();
+	</script>
+</body>
+</html>

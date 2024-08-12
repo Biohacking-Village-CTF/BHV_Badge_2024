@@ -1,0 +1,10 @@
+{
+    "port": 80,
+    "startupColor": "bhv",
+    "apPassword": "password",
+    "personalizedMsg": "Badge by SolaSec",
+    "coeff1": 0,
+    "coeff2": 0,
+    "coeff3": 0,
+    "version": "1.3"
+}

@@ -1,0 +1,47 @@
+{% args device_id %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="/style.css">
+	<title>Respond Page</title>
+	<script src="/js/respond.js"></script> <!-- Link to the external JS file -->
+</head>
+<body>
+	<div class="header" id="logo">
+		<img src="static/bhvLogo.png" height=80 alt="BHV Logo">
+		<p class="deviceId">{{ device_id }}</p>
+	</div>
+	<div class="topnav" id="myTopnav">
+		<a href="/respond" class="active">Respond</a>
+		<a href="/">Home</a>
+		<a href="/flags">Flags</a>
+		<a href="/comms">Comms</a>
+		<a href="/dial">Dial</a>
+		<a href="/sensor">Sensor</a>
+		<a href="/credits">Credits</a>
+		<a href="javascript:void(0);" class="icon" onclick="myFunction()">
+			<img src="static/menu.png" height=23>
+		</a>
+	</div>
+	<div class="content">
+		<p></p>
+		<button id="responseButton" type="button" onclick="triggerResponse()">Respond</button>
+		<p id="responseText">Waiting for response initiation...</p>
+	</div>
+	<div class="fun-fact">
+		<strong>Did You Know?</strong> <em>The implementation of GPS and data analytics in ambulances has significantly improved response times by using secure connections to access real-time traffic data, enabling drivers to choose the fastest routes to emergencies.</em>
+	</div>
+	<script>
+		function myFunction() {
+			var x = document.getElementById("myTopnav");
+			if (x.className === "topnav") {
+				x.className += " responsive";
+			} else {
+				x.className = "topnav";
+			}
+		}
+	</script>
+</body>
+</html>
