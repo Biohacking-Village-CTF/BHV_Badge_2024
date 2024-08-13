@@ -185,8 +185,8 @@ To be honest, the easiest solution is to use **VSCode** and **MicroPico** if you
 
 
 ## Contributing
-
-We welcome contributions from the community! If you would like to contribute, please follow these steps:
+![Group 61](https://github.com/user-attachments/assets/8643ca40-d64c-49d0-9696-47768f1bbc24)
+This year we collaborated with [SolaSec](https://www.solasec.io/) to design and develop this years bage. We welcome contributions from the community! If you would like to contribute, please follow these steps:
 
 1. **Fork the repository.**
 2. **Create a new branch:**
@@ -206,6 +206,9 @@ We welcome contributions from the community! If you would like to contribute, pl
 ## License
 
 This project is licensed under the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0).
+
+
+
 
 ## Contact
 
