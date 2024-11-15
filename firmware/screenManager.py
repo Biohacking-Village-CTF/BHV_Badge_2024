@@ -41,7 +41,8 @@ class ScreenManager:
         self.oled.fill(0)
         # self.oled.text("o-LIT-oscope", 0, 0)
         self.addBattery()
-        self.oled.large_text("WINNER", 20, 22, 2)
+        self.oled.large_text("CODE", 24, 22, 2)
+        self.oled.large_text("BLUE", 24, 30, 2)
         self.oled.show()
 
     def updateBACScreen(self, bac=None, message=None):
