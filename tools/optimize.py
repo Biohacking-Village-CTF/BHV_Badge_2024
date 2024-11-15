@@ -68,15 +68,16 @@ def compile_to_mpy(src_file, dest_file, mpy_cross_path):
         os.makedirs(os.path.dirname(dest_file), exist_ok=True)
 
         # Compile the .py file to .mpy
-        subprocess.run([mpy_cross_path, src_file, '-o', dest_file], check=True)
+        subprocess.run([mpy_cross_path,'-O3', src_file, '-o', dest_file], check=True)
         print(f"Compiled {src_file} to {dest_file}")
     except subprocess.CalledProcessError as e:
         print(f"Error compiling {src_file}: {e}")
 
 def main():
-    src_dir = '[path_to_repo]/bhvAmbulance/firmware'
-    build_dir = '[path_to_repo]/bhvAmbulance/build'
-    mpy_cross_path = '[path_to_repo]/bhvAmbulance/tools/mpy-cross'
+    src_dir = '/Users/sebastiaan.provost/Workspace/BHV/Badges/BHV_Badge_2024/firmware'
+    build_dir = '/Users/sebastiaan.provost/Workspace/BHV/Badges/BHV_Badge_2024/build'
+    #mpy_cross_path = '/Users/sebastiaan.provost/Workspace/BHV/Badges/BHV_Badge_2024/tools/mpy-cross'
+    mpy_cross_path = 'mpy-cross'
 
     # Create the directory structure in the build directory
     create_build_directory_structure(src_dir, build_dir)
